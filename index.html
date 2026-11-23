@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>محمد عبد الراضي بعث الله | مهندس اتصالات وإلكترونيات ومحلل أمن سيبراني</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #0b1120;
+      --bg-secondary: #111827;
+      --bg-card: #1e293b;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent: #38bdf8;
+      --accent-hover: #0284c7;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --border: #334155;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #f8fafc;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --accent: #0284c7;
+      --accent-hover: #0369a1;
+      --accent-soft: rgba(2, 132, 199, 0.1);
+      --border: #e2e8f0;
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 72px;
+    }
+
+    .logo {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .theme-btn {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .theme-btn:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 90px 0 70px;
+      text-align: center;
+      background: radial-gradient(circle at top center, var(--accent-soft), transparent 65%);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .hero p {
+      max-width: 740px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Sections */
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      margin-bottom: 42px;
+      max-width: 650px;
+      margin-inline: auto;
+    }
+
+    /* About Grid */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--accent);
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+    }
+
+    /* Filter Tabs */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .filter-btn {
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    /* Skills & Projects Grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .project-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Certifications */
+    .cert-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .cert-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-right: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 18px 20px;
+    }
+
+    .cert-item h4 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .cert-item span {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    /* Contact */
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 36px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">محمد بعث الله</a>
+        <ul class="nav-links">
+          <li><a href="#about">نبذة عني</a></li>
+          <li><a href="#skills">المهارات</a></li>
+          <li><a href="#projects">المشاريع والنماذج</a></li>
+          <li><a href="#certifications">الشهادات</a></li>
+          <li><a href="#contact">تواصل معي</a></li>
+        </ul>
+        <button id="themeToggle" class="theme-btn" aria-label="تبديل المظهر">الوضع النهاري ☀️</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <span class="badge">هندسة الإلكترونيات والاتصالات • الأمن السيبراني • إعداد العروض والمستندات</span>
+      <h1>محمد عبد الراضي بعث الله</h1>
+      <p>
+        مهندس إلكترونيات واتصالات ومتخصص في الشبكات والأمن السيبراني (SOC Analyst & CCNA)، أجمع بين الخبرة التقنية في تحليل الأنظمة وحماية الشبكات، والقدرة الاحترافية على تصميم العروض التقديمية وتنسيق مستندات Word وصياغة المحتوى بأسلوب واضح ومنظم.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">استعرض أعمالي</a>
+        <a href="#contact" class="btn-outline">تواصل معي</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">نبذة عني</h2>
+      <p class="section-subtitle">مزيج متكامل يجمع بين الخلفية الهندسية والأمن السيبراني ومهارات العرض والتوثيق الاحترافي</p>
+      <div class="about-grid">
+        <div class="card">
+          <h3>الأمن السيبراني والشبكات</h3>
+          <p>خبرة عملية في مراقبة وتحليل الأحداث الأمنية باستخدام أنظمة SIEM مثل Splunk و IBM QRadar، مع إلمام قوي ببروتوكولات الشبكات وإدارة الأنظمة.</p>
+        </div>
+        <div class="card">
+          <h3>تصميم العروض التقديمية (Presentations)</h3>
+          <p>إعداد عروض تقديمية جذابة ومنظمة بصرياً تبسّط المعلومات المعقدة وتبرز النقاط الأساسية بوضوح واحترافية للاجتماعات والمشاريع الأكاديمية والمهنية.</p>
+        </div>
+        <div class="card">
+          <h3>تنسيق Word وتحسين المحتوى</h3>
+          <p>تنسيق المستندات والتقارير على Microsoft Word بهيكلة احترافية تشمل الفهارس، الجداول، الترويسات، وتنقيح المحتوى النصي ليخرج بأفضل صورة مقروءة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">المهارات التقنية والمكتبية</h2>
+      <p class="section-subtitle">اختر التصنيف لاستعراض المهارات المرتبطة به</p>
+
+      <div class="filter-bar" id="skillFilters">
+        <button class="filter-btn active" data-filter="all">الكل</button>
+        <button class="filter-btn" data-filter="cyber">الأمن السيبراني</button>
+        <button class="filter-btn" data-filter="network">الشبكات والأنظمة</button>
+        <button class="filter-btn" data-filter="docs">العروض التقديمية وتنسيق المحتوى</button>
+      </div>
+
+      <div class="grid-3" id="skillsGrid">
+        <div class="card skill-card" data-category="cyber">
+          <h3>مراقبة وتحليل الأمن (SOC & SIEM)</h3>
+          <p>تحليل السجلات الأمنية، اكتشاف التهديدات، والاستجابة للحوادث السيبرانية.</p>
+          <div class="tag-list">
+            <span class="tag">Splunk</span>
+            <span class="tag">IBM QRadar</span>
+            <span class="tag">Incident Response</span>
+            <span class="tag">CEH Concepts</span>
+          </div>
+        </div>
+
+        <div class="card skill-card" data-category="network">
+          <h3>هندسة الشبكات وإدارة الخوادم</h3>
+          <p>تصميم وإدارة الشبكات، إعداد التوجيه والتبديل، وخطط التعافي من الكوارث.</p>
+          <div class="tag-list">
+            <span class="tag">CCNA</span>
+            <span class="tag">Routing & Switching</span>
+            <span class="tag">Windows Server</span>
+            <span class="tag">Active Directory</span>
+          </div>
+        </div>
+
+        <div class="card skill-card" data-category="docs">
+          <h3>تصميم العروض التقديمية (PowerPoint)</h3>
+          <p>بناء شرائح عرض متناسقة بصرياً، استخدام الرسوم البيانية، وتلخيص الأفكار بأسلوب مقنع.</p>
+          <div class="tag-list">
+            <span class="tag">PowerPoint</span>
+            <span class="tag">Visual Storytelling</span>
+            <span class="tag">Slide Design</span>
+          </div>
+        </div>
+
+        <div class="card skill-card" data-category="docs">
+          <h3>تنسيق مستندات Word وتحسين المحتوى</h3>
+          <p>إخراج التقارير والأبحاث بتنسيق احترافي، ضبط الهوامش والأنماط، وإعادة صياغة وتنظيم النصوص.</p>
+          <div class="tag-list">
+            <span class="tag">Microsoft Word</span>
+            <span class="tag">Document Formatting</span>
+            <span class="tag">Content Structuring</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">المشاريع ونماذج الأعمال</h2>
+      <p class="section-subtitle">نماذج من أعمالي في الأمن السيبراني والشبكات وإعداد العروض والمستندات</p>
+
+      <div class="filter-bar" id="projectFilters">
+        <button class="filter-btn active" data-filter="all">الكل</button>
+        <button class="filter-btn" data-filter="cyber">الأمن السيبراني</button>
+        <button class="filter-btn" data-filter="network">الشبكات والأنظمة</button>
+        <button class="filter-btn" data-filter="docs">العروض والمستندات</button>
+      </div>
+
+      <div class="grid-3" id="projectsGrid">
+        <div class="card project-card" data-category="cyber">
+          <h3>لوحة مراقبة وتحليل الأحداث الأمنية (SIEM)</h3>
+          <p>إعداد قواعد ارتباط وتحليل سجلات الشبكة لاكتشاف محاولات الاختراق والأنشطة المشبوهة باستخدام Splunk و QRadar.</p>
+          <div class="tag-list">
+            <span class="tag">Splunk</span>
+            <span class="tag">QRadar</span>
+            <span class="tag">Log Analysis</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">عرض تفاصيل المشروع ←</a>
+        </div>
+
+        <div class="card project-card" data-category="network">
+          <h3>بنية شبكة مؤسسية وخطة التعافي من الكوارث</h3>
+          <p>تصميم شبكة متكاملة وتطبيق استراتيجيات النسخ الاحتياطي والاستعادة لخوادم Windows Server و Active Directory.</p>
+          <div class="tag-list">
+            <span class="tag">CCNA</span>
+            <span class="tag">Windows Server</span>
+            <span class="tag">Disaster Recovery</span>
+          </div>
+          <a href="#" target="_blank" rel="noopener noreferrer" class="project-link">عرض تفاصيل المشروع ←</a>
+        </div>
+
+        <div class="card project-card" data-category="docs">
+          <h3>نماذج عروض تقديمية وتقارير Word منسقة</h3>
+          <p>مجموعة من العروض التقديمية الاحترافية والتقارير التقنية المنسقة بعناية مع تحسين كامل لهيكلة المحتوى وعرض البيانات.</p>
+          <div class="tag-list">
+            <span class="tag">Presentations</span>
+            <span class="tag">MS Word</span>
+            <span class="tag">Content Editing</span>
+          </div>
+          <a href="ضع_رابط_ملف_Google_Drive_هنا" target="_blank" rel="noopener noreferrer" class="project-link">معاينة النماذج ←</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications">
+    <div class="container">
+      <h2 class="section-title">الشهادات والاعتمادات</h2>
+      <p class="section-subtitle">أبرز الدورات والشهادات المهنية التي حصلت عليها</p>
+      <div class="cert-list">
+        <div class="cert-item">
+          <h4>Cisco Certified Network Associate (CCNA)</h4>
+          <span>Cisco • هندسة الشبكات والتوجيه والتبديل</span>
+        </div>
+        <div class="cert-item">
+          <h4>SOC Analyst Professional Credential</h4>
+          <span>ITgate • تحليل العمليات الأمنية و SIEM</span>
+        </div>
+        <div class="cert-item">
+          <h4>Certified Ethical Hacker (CEH) Training</h4>
+          <span>الأمن السيبراني واختبار الاختراق الأخلاقي</span>
+        </div>
+        <div class="cert-item">
+          <h4>Enterprise Networking, Security & Automation</h4>
+          <span>Cisco Networking Academy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2 class="section-title">تواصل معي</h2>
+        <p>متاح للتعاون في مشاريع الأمن السيبراني والشبكات، أو إعداد وتنسيق العروض التقديمية والمستندات باحترافية.</p>
+        <div class="contact-links">
+          <a href="mailto:mohamed.baathallah@example.com" class="btn-primary">راسلني عبر البريد</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-outline">LinkedIn</a>
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-outline">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 محمد عبد الراضي بعث الله — جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlEl = document.documentElement;
+
+    themeToggle.addEventListener('click', () => {
+      const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+      htmlEl.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      themeToggle.textContent = isDark ? 'الوضع الليلي 🌙' : 'الوضع النهاري ☀️';
+    });
+
+    // Reusable Filter Function
+    function setupFilter(filterContainerId, cardSelector) {
+      const container = document.getElementById(filterContainerId);
+      const buttons = container.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll(cardSelector);
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+
+          cards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    }
+
+    setupFilter('skillFilters', '.skill-card');
+    setupFilter('projectFilters', '.project-card');
+  </script>
+</body>
+</html>
